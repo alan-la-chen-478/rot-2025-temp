@@ -34,6 +34,22 @@
       "eas": {
         "projectId": "c916fa7a-668a-4b1b-b5a4-29b2c2651655"
       }
-    }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/c916fa7a-668a-4b1b-b5a4-29b2c2651655"
+    },
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/fonts/PragatiNarrow-Regular.ttf", "./assets/fonts/PragatiNarrow-Bold.ttf"]
+        }
+      ],
+      "expo-audio",
+      "expo-video"
+    ]
   }
 }
