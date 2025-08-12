@@ -7,8 +7,8 @@ export const getBuild = () => {
     return 'stage';
   }
 
-  if (bundle.indexOf('.debug') > -1) {
-    return 'debug';
+  if (bundle.indexOf('.development') > -1) {
+    return 'development';
   }
 
   if (bundle.indexOf('.release') > -1) {

@@ -4,12 +4,19 @@
   "main": "index.js",
   "scripts": {
     "start": "watchman watch-del-all && APP_VARIANT=development npx expo start --clear",
+    "=": "-",
     "build-android": "eas build --profile development --platform android --no-wait",
     "build-android-stage": "eas build --profile stage --platform android --no-wait --clear-cache",
     "build-android-prod": "eas build --profile production --platform android --no-wait --clear-cache",
     "build-ios": "eas build --profile development --platform ios --no-wait",
     "build-ios-stage": "eas build --profile stage --platform ios --no-wait --clear-cache",
-    "build-ios-prod": "eas build --profile production --platform ios --no-wait --clear-cache"
+    "build-ios-prod": "eas build --profile production --platform ios --no-wait --clear-cache",
+    "==": "--",
+    "push-dev": "APP_VARIANT=development eas update --channel development --clear-cache",
+    "push-stage": "APP_VARIANT=stage eas update --channel stage --clear-cache",
+    "push-prod": "APP_VARIANT=production eas update --channel production --clear-cache",
+    "===": "---",
+    "fix": "eslint \"App.js?(x)\" \"src/**/*.js?(x)\" --fix"
   },
   "dependencies": {
     "@notifee/react-native": "^9.1.8",
@@ -27,6 +34,7 @@
     "expo-av": "~15.1.7",
     "expo-dev-client": "~5.2.4",
     "expo-font": "~13.3.2",
+    "expo-splash-screen": "^0.30.10",
     "expo-status-bar": "~2.2.3",
     "expo-updates": "~0.28.17",
     "expo-video": "~2.2.2",
@@ -49,6 +57,13 @@
     "@babel/core": "^7.20.0",
     "@types/react": "~19.0.10",
     "babel-plugin-module-resolver": "^5.0.2",
+    "dotenv-cli": "^10.0.0",
+    "eslint": "^9.33.0",
+    "eslint-config-expo": "^9.2.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "prettier": "^3.6.2",
     "typescript": "~5.8.3"
   },

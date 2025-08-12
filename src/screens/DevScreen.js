@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import Constants from 'expo-constants';
 import {Alert} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
 import {getFullGlobalState} from '~hooks/useGlobalContext';
@@ -11,8 +12,8 @@ import {getDebugInfo} from '~helpers/debug';
 import {getConfig} from '~helpers/app';
 
 const DevScreen = ({navigation}) => {
+  const extra = Constants.expoConfig.extra;
   const states = getFullGlobalState();
-  const [appInfo, setAppInfo] = useState(null);
 
   useFocusEffect(() => {
     (async () => setAppInfo(await getDebugInfo()))();
@@ -22,8 +23,7 @@ const DevScreen = ({navigation}) => {
     <ScreenHeader headerText="Developer" containerStyle={{padding: 15}} showBack>
       <Text>Dev Screen</Text>
       <Button onPress={triggerJsError}>Test Error</Button>
-      <Text>{JSON.stringify(appInfo, null, 4)}</Text>
-      <Text>{JSON.stringify(states, null, 4)}</Text>
+      <Text>{JSON.stringify(extra, null, 4)}</Text>
     </ScreenHeader>
   );
 };
