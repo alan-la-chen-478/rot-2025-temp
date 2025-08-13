@@ -1,7 +1,7 @@
-import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import ToursListScreen from '~screens/ToursListScreen';
+import React from 'react';
 import TourDetailScreen from '~screens/TourDetailScreen';
+import ToursListScreen from '~screens/ToursListScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -10,7 +10,8 @@ const ToursNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-      }}>
+      }}
+    >
       <Stack.Screen name="ToursList" component={ToursListScreen} />
       <Stack.Screen name="TourDetail" component={TourDetailScreen} />
     </Stack.Navigator>

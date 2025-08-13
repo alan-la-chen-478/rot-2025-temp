@@ -2,14 +2,14 @@ import React from 'react';
 import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import AudioPlayer from '~components/AudioPlayer';
-import Text from '~elements/Text';
-import Tags from '~elements/Tags';
-import Tag from '~elements/Tag';
-import Html from '~elements/Html';
 import colors from '~configs/colors';
 import {dropShadow} from '~configs/styles';
-import {acfDateToHuman, arrayParse} from '~helpers/values';
+import Html from '~elements/Html';
+import Tag from '~elements/Tag';
+import Tags from '~elements/Tags';
+import Text from '~elements/Text';
 import {urlReplace} from '~helpers/app';
+import {acfDateToHuman, arrayParse} from '~helpers/values';
 
 const Itinerary = ({style, itinerary, ...props}) => {
   return (
@@ -20,7 +20,8 @@ const Itinerary = ({style, itinerary, ...props}) => {
           background="transparent"
           textStyle={{
             color: colors.primary,
-          }}>{`Day ${itinerary.day_number}`}</Tag>
+          }}
+        >{`Day ${itinerary.day_number}`}</Tag>
         <Tag evaluator={itinerary.date}>{acfDateToHuman(itinerary.date)}</Tag>
       </Tags>
 

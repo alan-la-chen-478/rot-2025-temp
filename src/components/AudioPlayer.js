@@ -1,14 +1,12 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {View, Pressable, Alert} from 'react-native';
-import EStyleSheet from 'react-native-extended-stylesheet';
 import {Audio} from 'expo-av';
-import {apiDomain} from '~libraries/Api';
-import LoadingIndicator from '~components/LoadingIndicator';
-import Text from '~elements/Text';
+import React, {useEffect, useState} from 'react';
+import {Pressable, View} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
+import colors from '~configs/colors';
 import Icon from '~elements/Icon';
 import Loading from '~elements/Loading';
+import Text from '~elements/Text';
 import {urlReplace} from '~helpers/app';
-import colors from '~configs/colors';
 
 const AudioPlayer = ({mp3, style, label, ...props}) => {
   const [sound, setSound] = useState(null);

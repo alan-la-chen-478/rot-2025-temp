@@ -1,4 +1,4 @@
-import {Platform, NativeModules, PixelRatio, Dimensions} from 'react-native';
+import {Dimensions, NativeModules, PixelRatio, Platform} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import app from '~configs/app';
 

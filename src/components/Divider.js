@@ -1,16 +1,11 @@
 import React from 'react';
 import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Text from '~elements/Text';
 import colors from '~configs/colors';
+import Text from '~elements/Text';
 
 const Divider = ({style, dividerStyle, color, width, text, textStyle}, props) => {
-  const dividerStyles = [
-    styles.divider,
-    dividerStyle,
-    color ? {backgroundColor: color} : null,
-    width ? {width: width / 2} : null,
-  ];
+  const dividerStyles = [styles.divider, dividerStyle, color ? {backgroundColor: color} : null, width ? {width: width / 2} : null];
 
   return (
     <View style={[styles.wrapper, style]} {...props}>

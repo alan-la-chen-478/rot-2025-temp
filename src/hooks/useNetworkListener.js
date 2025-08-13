@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
 import NetInfo from '@react-native-community/netinfo';
-import {useGlobalState, useGlobalSetter} from '~hooks/useGlobalContext';
+import {useEffect} from 'react';
+import {useGlobalState} from '~hooks/useGlobalContext';
 
 const useNetworkListener = () => {
   const [hasConnection, setHasConnection] = useGlobalState('hasConnection');

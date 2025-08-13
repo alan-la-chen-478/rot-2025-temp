@@ -1,8 +1,5 @@
 import React, {useState} from 'react';
 import {Pressable} from 'react-native';
-import Text from '~elements/Text';
-import Loading from '~elements/Loading';
-import colors from '~configs/colors';
 
 const MultiPressable = ({children, onMultiPress, multiPressTimes, ...props}) => {
   const [count, setCount] = useState(0);

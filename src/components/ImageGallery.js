@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import {View, Modal, Pressable} from 'react-native';
+import {Pressable, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 // import Carousel from 'react-native-snap-carousel';
 import Popup from '~components/Popup';
+import Image from '~elements/Image';
 import Loading from '~elements/Loading';
 import Text from '~elements/Text';
-import Image from '~elements/Image';
 
 const ImageGallery = ({style, images, ...props}) => {
   const [wrapperWidth, setWrapperWidth] = useState(0);

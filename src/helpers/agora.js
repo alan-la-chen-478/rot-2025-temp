@@ -1,11 +1,6 @@
-import {useEffect, useRef} from 'react';
-import {Platform, PermissionsAndroid} from 'react-native';
-import {
-  createAgoraRtcEngine,
-  ChannelProfile,
-  AgoraClientRole,
-  RtcEngineContext,
-} from 'react-native-agora';
+import {useRef} from 'react';
+import {PermissionsAndroid, Platform} from 'react-native';
+import {createAgoraRtcEngine} from 'react-native-agora';
 import {getConfig} from '~helpers/app';
 
 export const createClient = () => {
@@ -13,15 +8,10 @@ export const createClient = () => {
 
   const requestCameraAndAudioPermission = async () => {
     try {
-      const granted = await PermissionsAndroid.requestMultiple([
-        PermissionsAndroid.PERMISSIONS.CAMERA,
-        PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-      ]);
+      const granted = await PermissionsAndroid.requestMultiple([PermissionsAndroid.PERMISSIONS.CAMERA, PermissionsAndroid.PERMISSIONS.RECORD_AUDIO]);
       if (
-        granted['android.permission.RECORD_AUDIO'] ===
-          PermissionsAndroid.RESULTS.GRANTED &&
-        granted['android.permission.CAMERA'] ===
-          PermissionsAndroid.RESULTS.GRANTED
+        granted['android.permission.RECORD_AUDIO'] === PermissionsAndroid.RESULTS.GRANTED &&
+        granted['android.permission.CAMERA'] === PermissionsAndroid.RESULTS.GRANTED
       ) {
         console.log('You can use the cameras & mic');
       } else {
@@ -36,8 +26,6 @@ export const createClient = () => {
 
   return {
     client: () => engine.current,
-
-    setLogger: log => (_logger = logger),
 
     init: async () => {
       if (Platform.OS === 'android') {
@@ -76,11 +64,7 @@ export const createClient = () => {
       await engine.current?.setChannelProfile(1);
       await engine.current?.setClientRole(tokenInfo.speaker ? 1 : 2);
 
-      return await engine.current?.joinChannel(
-        tokenInfo.token,
-        tokenInfo.room_id,
-        tokenInfo.user_id,
-      );
+      return await engine.current?.joinChannel(tokenInfo.token, tokenInfo.room_id, tokenInfo.user_id);
     },
 
     destroy: async () => {

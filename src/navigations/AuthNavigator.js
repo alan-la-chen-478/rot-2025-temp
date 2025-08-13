@@ -1,11 +1,11 @@
-import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import EmailScreen from '~screens/EmailScreen';
-import RegisterScreen from '~screens/RegisterScreen';
-import LoginScreen from '~screens/LoginScreen';
+import React from 'react';
 import CodeLoginScreen from '~screens/CodeLoginScreen';
+import EmailScreen from '~screens/EmailScreen';
 import GuideLoginScreen from '~screens/GuideLoginScreen';
 import LoginHelpScreen from '~screens/LoginHelpScreen';
+import LoginScreen from '~screens/LoginScreen';
+import RegisterScreen from '~screens/RegisterScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +14,8 @@ const AuthNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-      }}>
+      }}
+    >
       <Stack.Screen name="EmailScreen" component={EmailScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />

@@ -1,17 +1,13 @@
 import React from 'react';
 import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import PasswordForm from '~components/forms/PasswordForm';
+import Holder from '~components/Holder';
+import AuthScreen from '~components/layouts/AuthScreen';
+import Icon from '~elements/Icon';
+import Link from '~elements/Link';
 import {useGlobalState} from '~hooks/useGlobalContext';
 import Api, {apiClient} from '~libraries/Api';
-import AuthScreen from '~components/layouts/AuthScreen';
-import PasswordForm from '~components/forms/PasswordForm';
-import Divider from '~components/Divider';
-import Holder from '~components/Holder';
-import Icon from '~elements/Icon';
-import Text from '~elements/Text';
-import TextSmall from '~elements/TextSmall';
-import Link from '~elements/Link';
-import colors from '~configs/colors';
 
 const LoginScreen = ({navigation, route}) => {
   const [loggedIn, setLoggedIn] = useGlobalState('loggedIn');

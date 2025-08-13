@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {View, Pressable} from 'react-native';
+import {Pressable, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Text from '~elements/Text';
 import colors from '~configs/colors';
+import Text from '~elements/Text';
 
 const Tabs = ({children, ...props}) => {
   const [current, setCurrent] = useState(0);
@@ -13,13 +13,8 @@ const Tabs = ({children, ...props}) => {
         {children.map((child, index) => {
           const active = index == current;
           return (
-            <Pressable
-              style={[styles.navItem, active ? styles.navItemActive : null]}
-              key={index}
-              onPress={() => setCurrent(index)}>
-              <Text textStyle={[styles.navItemText, active ? styles.navItemTextActive : null]}>
-                {child.props.tabLabel}
-              </Text>
+            <Pressable style={[styles.navItem, active ? styles.navItemActive : null]} key={index} onPress={() => setCurrent(index)}>
+              <Text textStyle={[styles.navItemText, active ? styles.navItemTextActive : null]}>{child.props.tabLabel}</Text>
             </Pressable>
           );
         })}
@@ -35,9 +30,6 @@ const styles = EStyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     marginBottom: 10,
-  },
-  navItem: {
-    marginRight: 5,
   },
   navItem: {
     marginRight: 5,

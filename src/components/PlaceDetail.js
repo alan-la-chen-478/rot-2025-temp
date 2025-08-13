@@ -1,20 +1,13 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Holder from '~components/Holder';
-import InfoBox from '~components/InfoBox';
 import ImageGallery from '~components/ImageGallery';
-import Button from '~elements/Button';
-import Image from '~elements/Image';
-import Html from '~elements/Html';
-import Text from '~elements/Text';
-import Tags from '~elements/Tags';
-import Tag from '~elements/Tag';
-import Tabs from '~elements/Tabs';
-import Divider from '~components/Divider';
+import InfoBox from '~components/InfoBox';
 import colors from '~configs/colors';
-import {dropShadow} from '~configs/styles';
+import Html from '~elements/Html';
+import Image from '~elements/Image';
+import Text from '~elements/Text';
 
 const PlaceDetail = ({place, ...props}) => {
   const navigation = useNavigation();
@@ -26,10 +19,7 @@ const PlaceDetail = ({place, ...props}) => {
         <Text textStyle={styles.titleText} bold text={place.title} />
         <Html evaluation={place.content} source={{html: place.content}} />
 
-        <InfoBox
-          heading="Place Gallery"
-          evaluator={place.acf.destination_gallery}
-          style={{marginTop: 25}}>
+        <InfoBox heading="Place Gallery" evaluator={place.acf.destination_gallery} style={{marginTop: 25}}>
           <ImageGallery images={place.acf.destination_gallery} />
         </InfoBox>
       </View>

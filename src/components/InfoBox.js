@@ -1,9 +1,9 @@
 import React from 'react';
 import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Text from '~elements/Text';
 import colors from '~configs/colors';
 import {dropShadow} from '~configs/styles';
+import Text from '~elements/Text';
 
 const InfoBox = ({style, heading, children, evaluator, ...props}) => {
   if (evaluator == false || evaluator === undefined || (evaluator && evaluator.length == 0)) {

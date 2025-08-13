@@ -1,14 +1,12 @@
-import React, {useState, useEffect, useCallback} from 'react';
-import {ScrollView, FlatList, View, Alert, RefreshControl} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
+import React, {useCallback, useState} from 'react';
+import {Alert, FlatList, RefreshControl, ScrollView} from 'react-native';
+import ScreenHeader from '~components/layouts/ScreenHeader';
+import LoadingIndicator from '~components/LoadingIndicator';
+import PlaceBox from '~components/PlaceBox';
+import {objectGet} from '~helpers/values';
 import {getFullGlobalState, useGlobalSetter} from '~hooks/useGlobalContext';
 import Api from '~libraries/Api';
-import ScreenHeader from '~components/layouts/ScreenHeader';
-import PlaceBox from '~components/PlaceBox';
-import LoadingIndicator from '~components/LoadingIndicator';
-import Link from '~elements/Link';
-import Text from '~elements/Text';
-import {objectSet, objectGet} from '~helpers/values';
 
 const PlacesListScreen = ({navigation}) => {
   const [loaded, setLoaded] = useState(false);
@@ -58,9 +56,7 @@ const PlacesListScreen = ({navigation}) => {
           keyExtractor={item => item.id}
         />
       ) : (
-        <ScrollView
-          contentContainerStyle={{padding: 15}}
-          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
+        <ScrollView contentContainerStyle={{padding: 15}} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
           <LoadingIndicator />
         </ScrollView>
       )}

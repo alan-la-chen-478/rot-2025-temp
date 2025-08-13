@@ -3,15 +3,13 @@ import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import InfoBox from '~components/InfoBox';
 import InfoLine from '~components/InfoLine';
-import Html from '~elements/Html';
-import Bullet from '~elements/Bullet';
 import colors from '~configs/colors';
+import Bullet from '~elements/Bullet';
+import Html from '~elements/Html';
 import {acfDateToHuman} from '~helpers/values';
 
 const TourTabInformation = ({tour, tourPlan, style, ...props}) => {
-  const highlights = tourPlan.acf.overwrite_tours_highlights
-    ? tourPlan.acf.tours_highlights
-    : tour.acf.long_description;
+  const highlights = tourPlan.acf.overwrite_tours_highlights ? tourPlan.acf.tours_highlights : tour.acf.long_description;
   const includes = tourPlan.acf.overwrite_tours_included ? tourPlan.acf.included : tour.acf.included;
   const notIncludes = tourPlan.acf.overwrite_tours_not_included ? tourPlan.acf.not_included : tour.acf.not_included;
 
@@ -22,11 +20,7 @@ const TourTabInformation = ({tour, tourPlan, style, ...props}) => {
       </InfoBox>
 
       <InfoLine heading="Number of Days" value={tourPlan.acf.number_of_days} evaluator={tourPlan.acf.number_of_days} />
-      <InfoLine
-        heading="Start Date"
-        value={acfDateToHuman(tourPlan.acf.start_date)}
-        evaluator={tourPlan.acf.start_date}
-      />
+      <InfoLine heading="Start Date" value={acfDateToHuman(tourPlan.acf.start_date)} evaluator={tourPlan.acf.start_date} />
       <InfoLine heading="End Date" value={acfDateToHuman(tourPlan.acf.end_date)} evaluator={tourPlan.acf.end_date} />
 
       <InfoBox heading="Included" evaluator={includes}>

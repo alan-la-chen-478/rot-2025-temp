@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Platform, PermissionsAndroid} from 'react-native';
+import {PermissionsAndroid, Platform} from 'react-native';
 import RtcEngine, {ChannelProfile, ClientRole} from 'react-native-agora';
 import {getConfig} from '~helpers/app';
 
@@ -19,7 +19,7 @@ const useAgoraClient = isSpeaker => {
         return;
       }
 
-      agoraClient = await RtcEngine.create(getConfig('agora.app_id'));
+      const agoraClient = await RtcEngine.create(getConfig('agora.app_id'));
       console.log(agoraClient);
       agoraClient.addListener('UserJoined', (...args) => console.log('UserJoined', args));
       agoraClient.addListener('UserOffline', (...args) => console.log('UserOffline', args));

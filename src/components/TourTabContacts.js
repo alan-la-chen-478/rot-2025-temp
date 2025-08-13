@@ -1,12 +1,10 @@
 import React from 'react';
 import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import InfoBox from '~components/InfoBox';
-import UserInfo from '~components/UserInfo';
 import ContactInfo from '~components/ContactInfo';
 import Divider from '~components/Divider';
-import Image from '~elements/Image';
-import Html from '~elements/Html';
+import InfoBox from '~components/InfoBox';
+import UserInfo from '~components/UserInfo';
 import {arrayParse} from '~helpers/values';
 
 const TourTabContacts = ({tour, tourPlan, style, ...props}) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import RenderHtml from 'react-native-render-html';
-import themes from '~configs/themes';
 import colors from '~configs/colors';
+import themes from '~configs/themes';
 
 const Html = ({evaluator, baseStyle, ...props}) => {
   if (evaluator && evaluator.length == 0) {

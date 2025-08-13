@@ -1,14 +1,12 @@
-import React, {useState, useRef} from 'react';
-import {View, Alert} from 'react-native';
-import EStyleSheet from 'react-native-extended-stylesheet';
 import {useNavigation} from '@react-navigation/native';
-import Api from '~libraries/Api';
-import Holder from '~components/Holder';
+import React, {useState} from 'react';
+import {Alert, View} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import Button from '~elements/Button';
-import InputEmail from '~elements/InputEmail';
-import InputPassword from '~elements/InputPassword';
 import Icon from '~elements/Icon';
+import InputEmail from '~elements/InputEmail';
 import TextError from '~elements/TextError';
+import Api from '~libraries/Api';
 
 const VerifyEmailForm = ({style, onSuccess, ...props}) => {
   const navigation = useNavigation();
@@ -49,7 +47,8 @@ const VerifyEmailForm = ({style, onSuccess, ...props}) => {
             style={{width: null, borderTopLeftRadius: 0, borderBottomLeftRadius: 0}}
             disabled={isLoading || email.length == 0}
             loading={isLoading}
-            onPress={verifyEmail}>
+            onPress={verifyEmail}
+          >
             <Icon name="arrow-circle-o-right" size={18} />
           </Button>
         }

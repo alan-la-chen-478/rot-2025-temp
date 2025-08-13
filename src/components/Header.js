@@ -1,13 +1,12 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {View, Pressable} from 'react-native';
+import {Pressable, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {useNavigation} from '@react-navigation/native';
 import DevPanelPressable from '~components/DevPanelPressable';
-import Text from '~elements/Text';
-import TextSmall from '~elements/TextSmall';
-import Icon from '~elements/Icon';
 import colors from '~configs/colors';
+import Icon from '~elements/Icon';
+import Text from '~elements/Text';
 
 const Header = ({headerText, showBack, ...props}) => {
   const insets = useSafeAreaInsets();

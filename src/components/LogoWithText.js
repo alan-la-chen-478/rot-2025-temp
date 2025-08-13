@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image} from 'react-native';
+import {Image} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import DevPanelPressable from '~components/DevPanelPressable';
 // import TextLogo from '~assets/images/logo-with-text.png';

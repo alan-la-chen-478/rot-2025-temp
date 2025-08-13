@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import {Pressable} from 'react-native';
-import Icon from '~elements/Icon';
 import Button from '~elements/Button';
+import Icon from '~elements/Icon';
 import Input from '~elements/Input';
 
 const InputPassword = props => {
@@ -13,9 +12,7 @@ const InputPassword = props => {
       secureTextEntry={secureText}
       textContentType="password"
       afterInput={
-        <Button
-          style={{width: null, borderTopLeftRadius: 0, borderBottomLeftRadius: 0}}
-          onPress={() => setSecureText(!secureText)}>
+        <Button style={{width: null, borderTopLeftRadius: 0, borderBottomLeftRadius: 0}} onPress={() => setSecureText(!secureText)}>
           <Icon name={secureText ? 'eye' : 'eye-slash'} size={18} />
         </Button>
       }

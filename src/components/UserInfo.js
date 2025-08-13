@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Linking, Pressable} from 'react-native';
+import {Linking, Pressable, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Html from '~elements/Html';
 import Text from '~elements/Text';

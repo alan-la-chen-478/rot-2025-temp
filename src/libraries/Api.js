@@ -1,5 +1,5 @@
-import {create} from 'apisauce';
 import NetInfo from '@react-native-community/netinfo';
+import {create} from 'apisauce';
 import {getConfig} from '~helpers/app';
 
 export const apiClient = create({

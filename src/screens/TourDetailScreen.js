@@ -1,14 +1,12 @@
-import React, {useState, useEffect, useCallback} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
-import {FlatList, View, RefreshControl, Alert} from 'react-native';
+import React, {useCallback, useState} from 'react';
+import {Alert, RefreshControl} from 'react-native';
+import ScreenHeader from '~components/layouts/ScreenHeader';
+import LoadingIndicator from '~components/LoadingIndicator';
+import TourDetail from '~components/TourDetail';
+import {objectGet} from '~helpers/values';
 import {getFullGlobalState, useGlobalSetter} from '~hooks/useGlobalContext';
 import Api from '~libraries/Api';
-import ScreenHeader from '~components/layouts/ScreenHeader';
-import TourDetail from '~components/TourDetail';
-import LoadingIndicator from '~components/LoadingIndicator';
-import Link from '~elements/Link';
-import Text from '~elements/Text';
-import {objectSet, objectGet} from '~helpers/values';
 
 const TourDetailScreen = ({navigation, route}) => {
   const [loaded, setLoaded] = useState(false);
@@ -55,7 +53,8 @@ const TourDetailScreen = ({navigation, route}) => {
       showBack
       scrollViewProps={{
         refreshControl: <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />,
-      }}>
+      }}
+    >
       {loaded ? <TourDetail tour={tour} tourPlan={tourPlan} /> : <LoadingIndicator />}
     </ScreenHeader>
   );

@@ -1,5 +1,5 @@
-import React from 'react';
 import {useNavigation} from '@react-navigation/native';
+import React from 'react';
 import MultiPressable from '~elements/MultiPressable';
 
 const DevPanelPressable = ({children, ...props}) => {

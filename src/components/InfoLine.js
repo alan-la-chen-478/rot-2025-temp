@@ -1,9 +1,9 @@
 import React from 'react';
 import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Text from '~elements/Text';
 import colors from '~configs/colors';
 import {dropShadow} from '~configs/styles';
+import Text from '~elements/Text';
 
 const InfoLine = ({style, value, heading, content, evaluator, ...props}) => {
   if (evaluator == false || evaluator === undefined || (evaluator && evaluator.length == 0)) {
@@ -19,9 +19,7 @@ const InfoLine = ({style, value, heading, content, evaluator, ...props}) => {
       <View style={styles.wrapperLeft}>
         <Text textStyle={styles.heading} text={heading} />
       </View>
-      <View style={styles.wrapperRight}>
-        {content ? content(styles.value) : <Text textStyle={styles.value}>{value}</Text>}
-      </View>
+      <View style={styles.wrapperRight}>{content ? content(styles.value) : <Text textStyle={styles.value}>{value}</Text>}</View>
     </View>
   );
 };

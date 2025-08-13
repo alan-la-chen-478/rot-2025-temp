@@ -1,13 +1,10 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import {useNavigation} from '@react-navigation/native';
-import Api from '~libraries/Api';
 import Holder from '~components/Holder';
 import Button from '~elements/Button';
 import InputEmail from '~elements/InputEmail';
 import InputPassword from '~elements/InputPassword';
-import Icon from '~elements/Icon';
 import TextError from '~elements/TextError';
 
 const PasswordForm = ({style, onSuccess, onSubmit, email, passwordLabelText, submitText, ...props}) => {

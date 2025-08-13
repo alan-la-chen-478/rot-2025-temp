@@ -1,10 +1,10 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Pressable} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import {useNavigation} from '@react-navigation/native';
-import Text from '~elements/Text';
 import colors from '~configs/colors';
-import {dropShadow} from '~configs/themes';
+import {dropShadow} from '~configs/styles';
+import Text from '~elements/Text';
 
 const NavigationItem = ({action, label, screen, style, textStyle, ...props}) => {
   const navigation = useNavigation();

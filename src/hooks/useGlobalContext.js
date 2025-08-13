@@ -1,9 +1,9 @@
-import React, {useState, useCallback, useEffect} from 'react';
-import {createContainer} from 'react-tracked';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {produce} from 'immer';
-import {objectGet, objectSet} from '~helpers/values';
+import React, {useEffect, useState} from 'react';
+import {createContainer} from 'react-tracked';
 import initialState from '~configs/states';
+import {objectGet, objectSet} from '~helpers/values';
 
 export const cacheKey = 'cached';
 
@@ -44,7 +44,7 @@ export const getFullGlobalState = () => {
 };
 
 // const subValue = getGlobalState('subValue', false);
-export const getGlobalState = (key, defaultValue: null) => {
+export const getGlobalState = (key, defaultValue = null) => {
   const state = trackedStateCallback();
   return objectGet(state, key, defaultValue);
 };
@@ -67,7 +67,7 @@ export const useGlobalSetter = key => {
     });
 };
 
-export const useGlobalState = (key, defaultValue: null) => {
+export const useGlobalState = (key, defaultValue = null) => {
   return [getGlobalState(key, defaultValue), useGlobalSetter(key)];
 };
 

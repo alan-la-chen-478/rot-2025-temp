@@ -1,9 +1,6 @@
-import React, {useEffect} from 'react';
-import {Platform} from 'react-native';
-import RootNavigator from '~navigations/RootNavigator';
+import React from 'react';
 import {GlobalStateProvider} from '~hooks/useGlobalContext';
-import {getConfig} from '~helpers/app';
-import {isTruthy} from '~helpers/values';
+import RootNavigator from '~navigations/RootNavigator';
 
 const App = () => {
   return (

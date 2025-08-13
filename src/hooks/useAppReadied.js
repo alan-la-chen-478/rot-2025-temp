@@ -1,12 +1,10 @@
 import {useEffect, useState} from 'react';
-import {Platform, Alert} from 'react-native';
-import Constants from 'expo-constants';
+import {Alert, Platform} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
-import {useGlobalState, getGlobalState} from '~hooks/useGlobalContext';
-// import useAppCenterFeatures from '~hooks/useAppCenterFeatures';
+import {getConfig} from '~helpers/app';
+import {getGlobalState, useGlobalState} from '~hooks/useGlobalContext';
 import useNetworkListener from '~hooks/useNetworkListener';
 import Api, {apiClient} from '~libraries/Api';
-import {getConfig} from '~helpers/app';
 
 const useAppReadied = () => {
   const [readied, setReadied] = useState(false);
@@ -15,7 +13,6 @@ const useAppReadied = () => {
   const accessToken = getGlobalState('accessToken');
   const apiUrl = getGlobalState('apiUrl');
 
-  // useAppCenterFeatures();
   useNetworkListener();
 
   useEffect(() => {

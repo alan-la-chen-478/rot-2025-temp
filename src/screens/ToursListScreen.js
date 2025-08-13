@@ -1,14 +1,13 @@
-import React, {useState, useEffect, useCallback} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
-import {FlatList, ScrollView, RefreshControl, Alert} from 'react-native';
+import React, {useCallback, useState} from 'react';
+import {Alert, FlatList, RefreshControl, ScrollView} from 'react-native';
+import ScreenHeader from '~components/layouts/ScreenHeader';
+import LoadingIndicator from '~components/LoadingIndicator';
+import TourBox from '~components/TourBox';
+import Text from '~elements/Text';
+import {objectGet} from '~helpers/values';
 import {getFullGlobalState, useGlobalSetter} from '~hooks/useGlobalContext';
 import Api from '~libraries/Api';
-import ScreenHeader from '~components/layouts/ScreenHeader';
-import TourBox from '~components/TourBox';
-import LoadingIndicator from '~components/LoadingIndicator';
-import Link from '~elements/Link';
-import Text from '~elements/Text';
-import {objectSet, objectGet} from '~helpers/values';
 
 const ToursListScreen = ({navigation}) => {
   const [loaded, setLoaded] = useState(false);
@@ -58,16 +57,12 @@ const ToursListScreen = ({navigation}) => {
             keyExtractor={item => item.id}
           />
         ) : (
-          <ScrollView
-            contentContainerStyle={{padding: 15}}
-            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
+          <ScrollView contentContainerStyle={{padding: 15}} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
             <Text>No active tours available at the moment</Text>
           </ScrollView>
         )
       ) : (
-        <ScrollView
-          contentContainerStyle={{padding: 15}}
-          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
+        <ScrollView contentContainerStyle={{padding: 15}} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
           <LoadingIndicator />
         </ScrollView>
       )}

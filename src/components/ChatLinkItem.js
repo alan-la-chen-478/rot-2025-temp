@@ -1,11 +1,10 @@
 import React from 'react';
-import {View, Pressable, Linking, Alert} from 'react-native';
+import {Alert, Linking, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import {useNavigation} from '@react-navigation/native';
-import Text from '~elements/Text';
 import Button from '~elements/Button';
 import Icon from '~elements/Icon';
-import {isTruthy, arrayParse} from '~helpers/values';
+import Text from '~elements/Text';
+import {arrayParse} from '~helpers/values';
 
 const ChatLinkItem = ({tour, style, ...props}) => {
   const chats = arrayParse(tour.group_chats);

@@ -1,18 +1,16 @@
 import React, {useState} from 'react';
-import {View, Pressable, Modal} from 'react-native';
-import * as FileSystem from 'expo-file-system';
-import {WebView} from 'react-native-webview';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {Modal, Pressable, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {WebView} from 'react-native-webview';
+import ImageGallery from '~components/ImageGallery';
 import InfoBox from '~components/InfoBox';
 import InfoLine from '~components/InfoLine';
-import ImageGallery from '~components/ImageGallery';
+import colors from '~configs/colors';
+import {dropShadow} from '~configs/styles';
+import Icon from '~elements/Icon';
 import Image from '~elements/Image';
 import Text from '~elements/Text';
-import Html from '~elements/Html';
-import Icon from '~elements/Icon';
-import colors from '~configs/colors';
-import {dropShadow} from '~configs/themes';
 import {urlReplace} from '~helpers/app';
 
 const TourTabResources = ({tour, tourPlan, style, ...props}) => {
@@ -27,12 +25,8 @@ const TourTabResources = ({tour, tourPlan, style, ...props}) => {
 
   return (
     <View style={[styles.wrapper, style]} {...props}>
-      <InfoBox
-        heading="Tour Map"
-        evaluator={tour.acf?.tour_map_image_app?.sizes?.medium_large}>
-        <Image
-          source={{uri: tour.acf?.tour_map_image_app?.sizes?.medium_large}}
-        />
+      <InfoBox heading="Tour Map" evaluator={tour.acf?.tour_map_image_app?.sizes?.medium_large}>
+        <Image source={{uri: tour.acf?.tour_map_image_app?.sizes?.medium_large}} />
       </InfoBox>
 
       <InfoBox heading="Tour Gallery" evaluator={tour.acf?.tour_gallery}>
@@ -54,11 +48,8 @@ const TourTabResources = ({tour, tourPlan, style, ...props}) => {
         evaluator={tour.acf['pre-tour_checklist']}
         content={innerStyle => {
           return (
-            <Pressable
-              onPress={() => viewResource(tour.acf['pre-tour_checklist'].url)}>
-              <Text textStyle={[innerStyle, {alignItems: 'center'}]}>
-                {tour.acf['pre-tour_checklist'].filename}
-              </Text>
+            <Pressable onPress={() => viewResource(tour.acf['pre-tour_checklist'].url)}>
+              <Text textStyle={[innerStyle, {alignItems: 'center'}]}>{tour.acf['pre-tour_checklist'].filename}</Text>
             </Pressable>
           );
         }}
@@ -69,22 +60,14 @@ const TourTabResources = ({tour, tourPlan, style, ...props}) => {
         evaluator={tour.acf['pre-tour_checklist_copy']}
         content={innerStyle => {
           return (
-            <Pressable
-              onPress={() =>
-                viewResource(tour.acf['pre-tour_checklist_copy'].url)
-              }>
-              <Text textStyle={[innerStyle, {alignItems: 'center'}]}>
-                {tour.acf['pre-tour_checklist_copy'].filename}
-              </Text>
+            <Pressable onPress={() => viewResource(tour.acf['pre-tour_checklist_copy'].url)}>
+              <Text textStyle={[innerStyle, {alignItems: 'center'}]}>{tour.acf['pre-tour_checklist_copy'].filename}</Text>
             </Pressable>
           );
         }}
       />
 
-      <Modal
-        animationType="slide"
-        visible={pdfVisible}
-        onRequestClose={() => setPdfVisible(false)}>
+      <Modal animationType="slide" visible={pdfVisible} onRequestClose={() => setPdfVisible(false)}>
         <SafeAreaView style={styles.centeredView}>
           <View style={styles.modalHeader}>
             <Pressable onPress={() => setPdfVisible(false)}>

@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, Pressable, Alert} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {NavigationContainer, useNavigationContainerRef} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, {useEffect} from 'react';
+import {Alert} from 'react-native';
 import RNRestart from 'react-native-restart';
-import Api, {apiClient} from '~libraries/Api';
-import {getGlobalState, useGlobalState, cacheKey} from '~hooks/useGlobalContext';
 import useAppReadied from '~hooks/useAppReadied';
-import MainNavigator from '~navigations/MainNavigator';
+import {cacheKey, getGlobalState, useGlobalState} from '~hooks/useGlobalContext';
+import Api from '~libraries/Api';
 import AuthNavigator from '~navigations/AuthNavigator';
+import MainNavigator from '~navigations/MainNavigator';
 import DevScreen from '~screens/DevScreen';
 import SplashScreen from '~screens/SplashScreen';
 
@@ -77,14 +77,12 @@ const RootNavigator = () => {
   }
 
   return (
-    <NavigationContainer
-      ref={navigationRef}
-      initialState={JSON.parse(navigationState || null)}
-      onStateChange={maybeSaveNavigationState}>
+    <NavigationContainer ref={navigationRef} initialState={JSON.parse(navigationState || null)} onStateChange={maybeSaveNavigationState}>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
-        }}>
+        }}
+      >
         {screens}
         <Stack.Screen name="Developer" component={DevScreen} />
       </Stack.Navigator>

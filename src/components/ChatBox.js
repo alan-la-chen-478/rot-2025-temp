@@ -1,14 +1,11 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Holder from '~components/Holder';
 import ChatLinkItem from '~components/ChatLinkItem';
-import Button from '~elements/Button';
-import Image from '~elements/Image';
-import Text from '~elements/Text';
 import colors from '~configs/colors';
 import {dropShadow} from '~configs/styles';
+import Text from '~elements/Text';
 
 const ChatBox = ({tour, ...props}) => {
   const navigation = useNavigation();

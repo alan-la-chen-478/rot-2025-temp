@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Pressable} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Text from '~elements/Text';
-import Loading from '~elements/Loading';
 import colors from '~configs/colors';
+import Loading from '~elements/Loading';
+import Text from '~elements/Text';
 
 const Link = ({children, disabled, loading, theme, style, textStyle, textProps, ...props}) => {
   const dynamicStyles = [styles.wrapper, style];

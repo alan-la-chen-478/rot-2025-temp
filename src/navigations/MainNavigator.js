@@ -1,15 +1,14 @@
-import React from 'react';
-import {Platform} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {useGlobalState, getGlobalState} from '~hooks/useGlobalContext';
-import ToursNavigator from '~navigations/ToursNavigator';
-import PlacesNavigator from '~navigations/PlacesNavigator';
-import ListenNavigator from '~navigations/ListenNavigator';
-import ChatNavigator from '~navigations/ChatNavigator';
-import MoreNavigator from '~navigations/MoreNavigator';
-import SpeakNavigator from '~navigations/SpeakNavigator';
-import Icon from '~elements/Icon';
+import React from 'react';
 import colors from '~configs/colors';
+import Icon from '~elements/Icon';
+import {getGlobalState} from '~hooks/useGlobalContext';
+import ChatNavigator from '~navigations/ChatNavigator';
+import ListenNavigator from '~navigations/ListenNavigator';
+import MoreNavigator from '~navigations/MoreNavigator';
+import PlacesNavigator from '~navigations/PlacesNavigator';
+import SpeakNavigator from '~navigations/SpeakNavigator';
+import ToursNavigator from '~navigations/ToursNavigator';
 
 const Tab = createBottomTabNavigator();
 

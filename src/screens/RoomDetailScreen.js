@@ -1,13 +1,10 @@
-import React, {useState, useEffect, useCallback} from 'react';
-import {FlatList, View, RefreshControl, Alert} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
-import Api from '~libraries/Api';
+import React, {useCallback, useState} from 'react';
+import {Alert, RefreshControl} from 'react-native';
 import ScreenHeader from '~components/layouts/ScreenHeader';
-import TourDetail from '~components/TourDetail';
 import LoadingIndicator from '~components/LoadingIndicator';
 import RoomDetail from '~components/RoomDetail';
-import Link from '~elements/Link';
-import Text from '~elements/Text';
+import Api from '~libraries/Api';
 
 const RoomDetailScreen = ({navigation, route}) => {
   const [loaded, setLoaded] = useState(false);
@@ -53,7 +50,8 @@ const RoomDetailScreen = ({navigation, route}) => {
       showBack
       scrollViewProps={{
         refreshControl: <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />,
-      }}>
+      }}
+    >
       {loaded ? <RoomDetail tokenInfo={tokenInfo} room={room} /> : <LoadingIndicator />}
     </ScreenHeader>
   );

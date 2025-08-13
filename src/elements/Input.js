@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {View, TextInput} from 'react-native';
+import {TextInput, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Text from '~elements/Text';
 import colors from '~configs/colors';
 import themes from '~configs/themes';
+import Text from '~elements/Text';
 
 const Input = props => {
   const {

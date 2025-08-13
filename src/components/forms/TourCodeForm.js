@@ -1,14 +1,12 @@
-import React, {useState, useRef} from 'react';
-import {View, Alert} from 'react-native';
-import EStyleSheet from 'react-native-extended-stylesheet';
 import {useNavigation} from '@react-navigation/native';
-import Api from '~libraries/Api';
-import Holder from '~components/Holder';
+import React, {useState} from 'react';
+import {Alert, View} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import Button from '~elements/Button';
-import Input from '~elements/Input';
-import InputPassword from '~elements/InputPassword';
 import Icon from '~elements/Icon';
+import Input from '~elements/Input';
 import TextError from '~elements/TextError';
+import Api from '~libraries/Api';
 
 const TourCodeForm = ({style, onSuccess, ...props}) => {
   const navigation = useNavigation();
@@ -49,7 +47,8 @@ const TourCodeForm = ({style, onSuccess, ...props}) => {
             style={{width: null, borderTopLeftRadius: 0, borderBottomLeftRadius: 0}}
             disabled={isLoading || code.length == 0}
             loading={isLoading}
-            onPress={verifyCode}>
+            onPress={verifyCode}
+          >
             <Icon name="arrow-circle-o-right" size={18} />
           </Button>
         }

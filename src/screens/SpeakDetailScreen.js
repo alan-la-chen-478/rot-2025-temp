@@ -1,14 +1,11 @@
-import React, {useState, useEffect, useCallback} from 'react';
-import {FlatList, View, RefreshControl, Alert} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
-import {useGlobalState, getGlobalState} from '~hooks/useGlobalContext';
-import Api from '~libraries/Api';
+import React, {useCallback, useState} from 'react';
+import {Alert, RefreshControl} from 'react-native';
 import ScreenHeader from '~components/layouts/ScreenHeader';
-import TourDetail from '~components/TourDetail';
 import LoadingIndicator from '~components/LoadingIndicator';
 import SpeakDetail from '~components/SpeakDetail';
-import Link from '~elements/Link';
-import Text from '~elements/Text';
+import {getGlobalState} from '~hooks/useGlobalContext';
+import Api from '~libraries/Api';
 
 const SpeakDetailScreen = ({navigation, route}) => {
   const currentUser = getGlobalState('currentUser');
@@ -56,7 +53,8 @@ const SpeakDetailScreen = ({navigation, route}) => {
       showBack
       scrollViewProps={{
         refreshControl: <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />,
-      }}>
+      }}
+    >
       {loaded ? <SpeakDetail tokenInfo={tokenInfo} room={room} /> : <LoadingIndicator />}
     </ScreenHeader>
   );

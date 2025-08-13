@@ -1,16 +1,15 @@
-import React, {useState} from 'react';
-import {View, Pressable, Alert} from 'react-native';
-import EStyleSheet from 'react-native-extended-stylesheet';
 import {useNavigation} from '@react-navigation/native';
-import {useGlobalState, getGlobalState} from '~hooks/useGlobalContext';
-import Api from '~libraries/Api';
-import Text from '~elements/Text';
-import Button from '~elements/Button';
-import Icon from '~elements/Icon';
-import Tags from '~elements/Tags';
-import Tag from '~elements/Tag';
+import React, {useState} from 'react';
+import {Alert, View} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import {themed} from '~configs/colors';
+import Button from '~elements/Button';
+import Tag from '~elements/Tag';
+import Tags from '~elements/Tags';
+import Text from '~elements/Text';
 import {acfDateToHuman} from '~helpers/values';
+import {getGlobalState} from '~hooks/useGlobalContext';
+import Api from '~libraries/Api';
 
 const StreamItem = ({room, isFirst, style, ...props}) => {
   const navigation = useNavigation();
@@ -36,9 +35,7 @@ const StreamItem = ({room, isFirst, style, ...props}) => {
   const gotoDetail = () => navigation.navigate(currentUser.user_type == 'user' ? 'RoomDetail' : 'SpeakDetail', {room});
 
   return (
-    <View
-      style={[styles.wrapper, isFirst ? {} : {borderTopWidth: 0.5, borderTopColor: themed.border}, style]}
-      {...props}>
+    <View style={[styles.wrapper, isFirst ? {} : {borderTopWidth: 0.5, borderTopColor: themed.border}, style]} {...props}>
       <Tags>
         <Tag evaluator={true}>{`Day ${room.day_number}: ${acfDateToHuman(room.date)}`}</Tag>
       </Tags>

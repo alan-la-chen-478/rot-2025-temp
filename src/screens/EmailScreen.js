@@ -1,14 +1,13 @@
 import React from 'react';
 import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import AuthScreen from '~components/layouts/AuthScreen';
-import VerifyEmailForm from '~components/forms/VerifyEmailForm';
 import Divider from '~components/Divider';
+import VerifyEmailForm from '~components/forms/VerifyEmailForm';
 import Holder from '~components/Holder';
-import TextSmall from '~elements/TextSmall';
+import AuthScreen from '~components/layouts/AuthScreen';
+import colors from '~configs/colors';
 import Button from '~elements/Button';
 import Link from '~elements/Link';
-import colors from '~configs/colors';
 
 const EmailScreen = ({navigation}) => {
   const onSuccess = (email, data) => {

@@ -1,10 +1,9 @@
 import React from 'react';
-import {View, Modal, Pressable} from 'react-native';
+import {Modal, Pressable, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Text from '~elements/Text';
-import Icon from '~elements/Icon';
 import colors from '~configs/colors';
 import {dropShadow} from '~configs/styles';
+import Icon from '~elements/Icon';
 
 const Popup = ({visible, onClose, style, children, ...props}) => {
   return (

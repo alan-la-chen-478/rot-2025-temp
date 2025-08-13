@@ -1,14 +1,14 @@
-import React, {useState, useCallback} from 'react';
-import {View, Alert} from 'react-native';
-import EStyleSheet from 'react-native-extended-stylesheet';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {deactivateKeepAwake, activateKeepAwakeAsync} from 'expo-keep-awake';
+import {activateKeepAwakeAsync, deactivateKeepAwake} from 'expo-keep-awake';
+import React, {useCallback, useState} from 'react';
+import {Alert, View} from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
+import {themed} from '~configs/colors';
+import Button from '~elements/Button';
+import Text from '~elements/Text';
+import {createClient} from '~helpers/agora';
 import Api from '~libraries/Api';
 import Notifee from '~libraries/Notifee';
-import Text from '~elements/Text';
-import Button from '~elements/Button';
-import {themed} from '~configs/colors';
-import {createClient} from '~helpers/agora';
 
 const AgoraStream = ({tokenInfo, room, style, ...props}) => {
   const navigation = useNavigation();
@@ -35,9 +35,7 @@ const AgoraStream = ({tokenInfo, room, style, ...props}) => {
           await Notifee.stop();
           clearInterval(interval);
           client.destroy();
-          Alert.alert('Error', 'Room has expired', [
-            {text: 'Back', onPress: () => navigation.goBack()},
-          ]);
+          Alert.alert('Error', 'Room has expired', [{text: 'Back', onPress: () => navigation.goBack()}]);
         }
       }, 5000);
 
@@ -55,11 +53,7 @@ const AgoraStream = ({tokenInfo, room, style, ...props}) => {
           setHostsCount(isHost ? userCount : userCount - 1);
         });
 
-        client
-          .client()
-          .addListener('onLocalAudioStateChanged', (conn, state, error) =>
-            setIsMute(!state),
-          );
+        client.client().addListener('onLocalAudioStateChanged', (conn, state, error) => setIsMute(!state));
 
         const status = await client.join(tokenInfo);
       })();
@@ -78,9 +72,7 @@ const AgoraStream = ({tokenInfo, room, style, ...props}) => {
       <View style={styles.circle}>
         {connected ? (
           <>
-            {isHost && isMute && (
-              <Text style={styles.muteText}>You are muted.</Text>
-            )}
+            {isHost && isMute && <Text style={styles.muteText}>You are muted.</Text>}
             <Text style={styles.mainText}>Connected</Text>
             <Text style={styles.hostsCount}>Speakers: {hostsCount}</Text>
           </>
@@ -89,17 +81,9 @@ const AgoraStream = ({tokenInfo, room, style, ...props}) => {
         )}
       </View>
 
-      {connected && hasStats && hostsCount === 0 && (
-        <Text style={styles.hostsNotice}>
-          (No speakers have connected yet.)
-        </Text>
-      )}
-      {connected && hasStats && isHost && (
-        <Text style={styles.hostsNotice}>(You are a speaker.)</Text>
-      )}
-      {connected && hasStats && isHost && (
-        <Button onPress={toggleMute}>{isMute ? 'Speak' : 'Mute'}</Button>
-      )}
+      {connected && hasStats && hostsCount === 0 && <Text style={styles.hostsNotice}>(No speakers have connected yet.)</Text>}
+      {connected && hasStats && isHost && <Text style={styles.hostsNotice}>(You are a speaker.)</Text>}
+      {connected && hasStats && isHost && <Button onPress={toggleMute}>{isMute ? 'Speak' : 'Mute'}</Button>}
     </View>
   );
 };

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Button from '~elements/Button';
 

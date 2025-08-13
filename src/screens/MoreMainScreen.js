@@ -1,39 +1,35 @@
-import React, {useState, useEffect} from 'react';
-import {FlatList, View, Linking, Alert} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import React from 'react';
+import {Alert, Linking, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import RNRestart from 'react-native-restart';
-import {getFullGlobalState, useGlobalSetter} from '~hooks/useGlobalContext';
-import Api from '~libraries/Api';
-import {cacheKey} from '~hooks/useGlobalContext';
 import ScreenHeader from '~components/layouts/ScreenHeader';
 import NavigationItem from '~components/NavigationItem';
 import VersionInfo from '~components/VersionInfo';
 import colors from '~configs/colors';
-import {objectSet, objectGet} from '~helpers/values';
+import {objectGet} from '~helpers/values';
+import {cacheKey} from '~hooks/useGlobalContext';
+import {getFullGlobalState, useGlobalSetter} from '~hooks/useGlobalContext';
+import Api from '~libraries/Api';
 
 const MoreMainScreen = ({navigation}) => {
   const globalState = getFullGlobalState();
   const setGlobalGlobal = useGlobalSetter('settings');
 
   const logout = async () => {
-    Alert.alert(
-      'Are you sure?',
-      "Logging out will clear out all the offline data, you'll need internet connection to log back in.",
-      [
-        {
-          text: 'Cancel',
-          style: 'cancel',
+    Alert.alert('Are you sure?', "Logging out will clear out all the offline data, you'll need internet connection to log back in.", [
+      {
+        text: 'Cancel',
+        style: 'cancel',
+      },
+      {
+        text: 'OK',
+        onPress: async () => {
+          await AsyncStorage.removeItem(cacheKey);
+          RNRestart.Restart();
         },
-        {
-          text: 'OK',
-          onPress: async () => {
-            await AsyncStorage.removeItem(cacheKey);
-            RNRestart.Restart();
-          },
-        },
-      ],
-    );
+      },
+    ]);
   };
 
   const launchContact = async () => {

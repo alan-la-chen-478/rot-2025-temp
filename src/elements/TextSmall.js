@@ -1,7 +1,7 @@
 import React from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Text from '~elements/Text';
 import themes from '~configs/themes';
+import Text from '~elements/Text';
 
 const TextSmall = ({children, textStyle, ...props}) => {
   return (

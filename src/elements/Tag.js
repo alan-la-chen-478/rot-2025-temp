@@ -1,9 +1,8 @@
 import React from 'react';
 import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Text from '~elements/Text';
 import colors from '~configs/colors';
-import themes from '~configs/themes';
+import Text from '~elements/Text';
 
 const Tag = ({children, style, textStyle, background, color, textProps, evaluator, ...props}) => {
   if (evaluator == false || evaluator === undefined || (evaluator && evaluator.length == 0)) {

@@ -1,5 +1,5 @@
-import {maybeCall, objectGet} from '~helpers/values';
 import app from '~configs/app';
+import {objectGet} from '~helpers/values';
 
 export const urlReplace = string => {
   return string.replaceAll(getConfig('api.proxy_domain'), getConfig('api.domain')).replaceAll('http://', 'https://');

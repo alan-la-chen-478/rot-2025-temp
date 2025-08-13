@@ -1,5 +1,5 @@
-import React, {useState, useEffect, createRef} from 'react';
-import {ImageBackground, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {ImageBackground, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {urlReplace} from '~helpers/app';
 

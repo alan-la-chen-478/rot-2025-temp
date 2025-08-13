@@ -1,17 +1,14 @@
 import React from 'react';
 import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import {useGlobalState} from '~hooks/useGlobalContext';
-import Api, {apiClient} from '~libraries/Api';
-import AuthScreen from '~components/layouts/AuthScreen';
 import TourCodeForm from '~components/forms/TourCodeForm';
-import Divider from '~components/Divider';
 import Holder from '~components/Holder';
+import AuthScreen from '~components/layouts/AuthScreen';
 import Icon from '~elements/Icon';
-import Text from '~elements/Text';
-import TextSmall from '~elements/TextSmall';
 import Link from '~elements/Link';
-import colors from '~configs/colors';
+import TextSmall from '~elements/TextSmall';
+import {useGlobalState} from '~hooks/useGlobalContext';
+import {apiClient} from '~libraries/Api';
 
 const CodeLoginScreen = ({navigation}) => {
   const [loggedIn, setLoggedIn] = useGlobalState('loggedIn');
@@ -28,9 +25,7 @@ const CodeLoginScreen = ({navigation}) => {
   return (
     <AuthScreen>
       <View style={styles.wrapper}>
-        <TextSmall>
-          If your email address is not registered in our system, please ask your tour manager for a tour access code.
-        </TextSmall>
+        <TextSmall>If your email address is not registered in our system, please ask your tour manager for a tour access code.</TextSmall>
         <TourCodeForm style={styles.form} onSuccess={onSuccess} />
         <Holder>
           <Link onPress={() => navigation.goBack()} style={styles.link} textStyle={styles.linkText}>

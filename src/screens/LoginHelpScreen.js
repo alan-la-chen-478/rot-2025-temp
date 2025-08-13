@@ -1,15 +1,12 @@
-import React, {useState, useEffect, useCallback} from 'react';
-import {FlatList, View, RefreshControl, Alert} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
+import React, {useCallback, useState} from 'react';
+import {Alert, RefreshControl, View} from 'react-native';
+import ScreenHeader from '~components/layouts/ScreenHeader';
+import LoadingIndicator from '~components/LoadingIndicator';
+import Html from '~elements/Html';
+import {objectGet} from '~helpers/values';
 import {getFullGlobalState, useGlobalSetter} from '~hooks/useGlobalContext';
 import Api from '~libraries/Api';
-import ScreenHeader from '~components/layouts/ScreenHeader';
-import TourDetail from '~components/TourDetail';
-import LoadingIndicator from '~components/LoadingIndicator';
-import Link from '~elements/Link';
-import Html from '~elements/Html';
-import Text from '~elements/Text';
-import {objectSet, objectGet} from '~helpers/values';
 
 const LoginHelpScreen = () => {
   const [loaded, setLoaded] = useState(false);
@@ -53,7 +50,8 @@ const LoginHelpScreen = () => {
       showBack
       scrollViewProps={{
         refreshControl: <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />,
-      }}>
+      }}
+    >
       {loaded ? (
         <View style={{padding: 10}}>
           <Html source={{html: content || ''}} />

@@ -1,8 +1,7 @@
 import React from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Text from '~elements/Text';
 import colors from '~configs/colors';
-import themes from '~configs/themes';
+import Text from '~elements/Text';
 
 const TextError = ({children, textStyle, ...props}) => {
   return (

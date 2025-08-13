@@ -1,10 +1,8 @@
 import React from 'react';
 import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Text from '~elements/Text';
 import Icon from '~elements/Icon';
-import colors from '~configs/colors';
-import themes from '~configs/themes';
+import Text from '~elements/Text';
 
 const Bullet = ({children, textStyle, iconStyle, icon = 'check-circle', ...props}) => {
   return (

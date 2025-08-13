@@ -1,8 +1,6 @@
-import React, {useState, useEffect, createRef} from 'react';
-import {View, Image as RNImage} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Image as RNImage, View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import AutoHeightImage from 'react-native-auto-height-image';
-import {apiDomain} from '~libraries/Api';
 import {urlReplace} from '~helpers/app';
 
 const Image = ({style, width, height, source, ...props}) => {
@@ -55,17 +53,11 @@ const Image = ({style, width, height, source, ...props}) => {
     };
   }, [wrapperWidth]);
 
-  const onWrapperLayout = event =>
-    setWrapperWidth(event.nativeEvent.layout.width);
+  const onWrapperLayout = event => setWrapperWidth(event.nativeEvent.layout.width);
 
   return (
-    <View
-      style={[styles.wrapper, {height: adjustedHeight}]}
-      onLayout={onWrapperLayout}>
-      <RNImage
-        source={imageSource}
-        style={[style, {height: adjustedHeight, width: adjustedWidth}]}
-      />
+    <View style={[styles.wrapper, {height: adjustedHeight}]} onLayout={onWrapperLayout}>
+      <RNImage source={imageSource} style={[style, {height: adjustedHeight, width: adjustedWidth}]} />
     </View>
   );
 };

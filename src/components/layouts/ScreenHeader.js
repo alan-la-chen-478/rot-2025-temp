@@ -1,10 +1,9 @@
 import React from 'react';
-import {View, ScrollView} from 'react-native';
+import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import Header from '~components/Header';
 import ScreenBase from '~components/layouts/ScreenBase';
 import ScreenFull from '~components/layouts/ScreenFull';
-import Header from '~components/Header';
-import colors from '~configs/colors';
 
 const ScreenHeader = ({noScroll, headerText, showBack, ...props}) => {
   const header = <Header headerText={headerText} showBack={showBack} />;

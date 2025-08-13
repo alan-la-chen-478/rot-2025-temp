@@ -30,10 +30,7 @@ export const objectGet = (obj, path = false, defaultValue = null) => {
   const result = arrayParse(path).reduce((prevObj, key) => {
     const regexp = /\{(.+)\}/g;
     const fixedKey = key.replace(regexp, '$1');
-    return (
-      prevObj &&
-      (`${key}`.match(regexp) && isJson(prevObj[fixedKey]) ? JSON.parse(prevObj[fixedKey]) : prevObj[fixedKey])
-    );
+    return prevObj && (`${key}`.match(regexp) && isJson(prevObj[fixedKey]) ? JSON.parse(prevObj[fixedKey]) : prevObj[fixedKey]);
   }, obj);
 
   return result === undefined ? defaultValue : result;
@@ -64,10 +61,10 @@ export const isJson = string => {
 };
 
 export const randomString = length => {
-  var result = '';
-  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  var charactersLength = characters.length;
-  for (var i = 0; i < length; i++) {
+  let result = '';
+  let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;

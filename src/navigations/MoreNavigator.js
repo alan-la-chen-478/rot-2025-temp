@@ -1,11 +1,10 @@
-import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React from 'react';
+import AboutScreen from '~screens/AboutScreen';
+import HelpsFaqScreen from '~screens/HelpsFaqScreen';
 import MoreMainScreen from '~screens/MoreMainScreen';
 import SettingScreen from '~screens/SettingScreen';
-import AboutScreen from '~screens/AboutScreen';
 import TermsAndConditionsScreen from '~screens/TermsAndConditionsScreen';
-import HelpsFaqScreen from '~screens/HelpsFaqScreen';
-import PlaceholderScreen from '~screens/PlaceholderScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +13,8 @@ const MoreNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-      }}>
+      }}
+    >
       <Stack.Screen name="MoreMain" component={MoreMainScreen} />
       <Stack.Screen name="Settings" component={SettingScreen} />
       <Stack.Screen name="AboutUs" component={AboutScreen} />

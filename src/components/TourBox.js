@@ -1,13 +1,13 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Holder from '~components/Holder';
-import Button from '~elements/Button';
-import BackgroundImage from '~elements/BackgroundImage';
-import Text from '~elements/Text';
 import colors from '~configs/colors';
 import {dropShadow} from '~configs/styles';
+import BackgroundImage from '~elements/BackgroundImage';
+import Button from '~elements/Button';
+import Text from '~elements/Text';
 import {acfDateToHuman} from '~helpers/values';
 
 const TourBox = ({tour, ...props}) => {
