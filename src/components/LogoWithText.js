@@ -7,11 +7,7 @@ import DevPanelPressable from '~components/DevPanelPressable';
 const LogoWithText = ({imageProps, style, imageStyle}, props) => {
   return (
     <DevPanelPressable style={[styles.wrapper, style]} {...props}>
-      <Image
-        source={require('~assets/images/logo-with-text.png')}
-        style={[{width: 240, height: (240 * 151) / 784}]}
-        resizeMode="contain"
-      />
+      <Image source={require('~assets/images/logo_with_text.png')} style={[{width: 240, height: (240 * 151) / 784}]} resizeMode="contain" />
     </DevPanelPressable>
   );
 };
