@@ -17,10 +17,12 @@ export default {
     userInterfaceStyle: 'light',
     newArchEnabled: true,
     ios: {
+      name: process.env.IOS_SCHEME_NAME,
       supportsTablet: true,
       bundleIdentifier: process.env.APP_ID,
       buildNumber: process.env.BUILD_VERSION,
       infoPlist: {
+        CFBundleDisplayName: process.env.APP_NAME,
         ITSAppUsesNonExemptEncryption: false,
         UIBackgroundModes: ['fetch', 'remote-notification', 'audio'],
       },
