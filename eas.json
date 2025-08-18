@@ -4,22 +4,22 @@
     "appVersionSource": "local"
   },
   "build": {
-    "development": {
+    "debug": {
       "developmentClient": true,
       "distribution": "internal",
-      "channel": "development",
+      "channel": "debug",
       "ios": {
         "simulator": true
       },
       "env": {
-        "APP_VARIANT": "development"
+        "APP_VARIANT": "debug"
       }
     },
     "stage": {
       "distribution": "internal",
       "channel": "stage",
       "env": {
-        "APP_VARIANT": "stage"
+        "APP_VARIANT": "stage",
       }
     },
     "production": {

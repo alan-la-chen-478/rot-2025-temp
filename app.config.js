@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
 
-const variant = process.env.APP_VARIANT || process.env.EAS_BUILD_PROFILE || 'development';
+const variant = process.env.APP_VARIANT || process.env.EAS_BUILD_PROFILE || 'debug';
 const envFile = path.resolve(__dirname, `.env.${variant}`);
 dotenv.config({path: envFile});
 
@@ -10,6 +10,7 @@ export default {
   expo: {
     owner: 'alro-media',
     name: process.env.APP_NAME,
+    displayName: process.env.DISPLAY_NAME,
     slug: 'royale-orchid-tours-2025',
     version: process.env.APP_VERSION,
     orientation: 'portrait',
@@ -17,12 +18,10 @@ export default {
     userInterfaceStyle: 'light',
     newArchEnabled: true,
     ios: {
-      name: process.env.IOS_SCHEME_NAME,
       supportsTablet: true,
       bundleIdentifier: process.env.APP_ID,
       buildNumber: process.env.BUILD_VERSION,
       infoPlist: {
-        CFBundleDisplayName: process.env.APP_NAME,
         ITSAppUsesNonExemptEncryption: false,
         UIBackgroundModes: ['fetch', 'remote-notification', 'audio'],
       },
@@ -39,6 +38,7 @@ export default {
       },
       APP_VARIANT: variant,
       APP_NAME: process.env.APP_NAME,
+      DISPLAY_NAME: process.env.DISPLAY_NAME,
       APP_ID: process.env.APP_ID,
       APP_VERSION: process.env.APP_VERSION,
       BUILD_VERSION: process.env.BUILD_VERSION,

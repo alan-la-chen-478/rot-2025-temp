@@ -3,20 +3,22 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "watchman watch-del-all && APP_VARIANT=development npx expo start --clear",
+    "start": "watchman watch-del-all && APP_VARIANT=debug npx expo start --clear",
     "=": "-",
-    "build-android": "eas build --profile development --platform android --no-wait",
+    "build-android": "eas build --profile debug --platform android --no-wait",
     "build-android-stage": "eas build --profile stage --platform android --no-wait --clear-cache",
     "build-android-prod": "eas build --profile production --platform android --no-wait --clear-cache",
-    "build-ios": "eas build --profile development --platform ios --no-wait",
+    "build-ios": "eas build --profile debug --platform ios --no-wait",
     "build-ios-stage": "eas build --profile stage --platform ios --no-wait --clear-cache",
     "build-ios-prod": "eas build --profile production --platform ios --no-wait --clear-cache",
     "==": "--",
-    "push-dev": "APP_VARIANT=development eas update --channel development --clear-cache",
+    "push-dev": "APP_VARIANT=debug eas update --channel debug --clear-cache",
     "push-stage": "APP_VARIANT=stage eas update --channel stage --clear-cache",
     "push-prod": "APP_VARIANT=production eas update --channel production --clear-cache",
     "===": "---",
-    "fix": "eslint \"App.js?(x)\" \"src/**/*.js?(x)\" --fix"
+    "fix": "eslint \"App.js?(x)\" \"src/**/*.js?(x)\" --fix",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "dependencies": {
     "@notifee/react-native": "^9.1.8",
