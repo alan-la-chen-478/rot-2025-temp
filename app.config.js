@@ -22,6 +22,7 @@ export default {
       bundleIdentifier: process.env.APP_ID,
       buildNumber: process.env.BUILD_VERSION,
       infoPlist: {
+        NSCameraUsageDescription: '$(PRODUCT_NAME) needs access to your camera so you can record and broadcast video to others.',
         ITSAppUsesNonExemptEncryption: false,
         UIBackgroundModes: ['fetch', 'remote-notification', 'audio'],
       },
@@ -31,6 +32,8 @@ export default {
       package: process.env.APP_ID,
       versionCode: process.env.BUILD_VERSION,
       edgeToEdgeEnabled: true,
+      permissions: ['android.permission.CAMERA', 'android.permission.RECORD_AUDIO'],
+      blockedPermissions: ['FOREGROUND_SERVICE_MEDIA_PLAYBACK', 'FOREGROUND_SERVICE_LOCATION'],
     },
     extra: {
       eas: {
@@ -61,6 +64,18 @@ export default {
         'expo-font',
         {
           fonts: ['./assets/fonts/PragatiNarrow-Regular.ttf', './assets/fonts/PragatiNarrow-Bold.ttf'],
+        },
+      ],
+      [
+        'expo-audio',
+        {
+          microphonePermission: '$(PRODUCT_NAME) needs access to your microphone so you can record and broadcast your voice to others.',
+        },
+      ],
+      [
+        'expo-video',
+        {
+          supportsBackgroundPlayback: true,
         },
       ],
       [
